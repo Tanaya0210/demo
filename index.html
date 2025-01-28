@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #cat-fact {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        #cat-fact:hover {
+            transform: scale(1.2);
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cat Fact</h1>
+        <p id="cat-fact"></p>
+        <button id="new-fact">Show Another Fact</button>
+    </div>
+    <script>
+        const catFacts = [
+            "Cats have five toes on their front paws, but only four toes on their back paws.",
+            "A group of cats is called a clowder.",
+            "Cats can rotate their ears 180 degrees.",
+            "The average cat sleeps for 12 to 16 hours a day.",
+            "Cats can make over 100 different sounds.",
+            "A cat's nose print is unique, much like a human's fingerprint.",
+            "Cats can jump up to six times their length in one leap.",
+            "The world's oldest cat lived to be 38 years old.",
+            "Cats have a special reflective layer behind their retinas called the tapetum lucidum, which helps them see in low light.",
+            "Domestic cats are descended from wildcats that lived in the Middle East around 10,000 years ago."
+        ];
+
+        function getRandomFact() {
+            const randomIndex = Math.floor(Math.random() * catFacts.length);
+            return catFacts[randomIndex];
+        }
+
+        document.getElementById('cat-fact').innerText = getRandomFact();
+
+        document.getElementById('new-fact').addEventListener('click', () => {
+            document.getElementById('cat-fact').innerText = getRandomFact();
+        });
+    </script>
+</body>
+</html>
